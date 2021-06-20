@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Enums\CountryCodeRegex;
-use App\Filters\CustomerFilter;
 use App\Models\Customer;
 use App\Services\CustomerService;
 use Illuminate\Http\Request;

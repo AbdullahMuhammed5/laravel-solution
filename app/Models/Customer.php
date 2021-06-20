@@ -23,7 +23,8 @@ class Customer extends Model
     public function getCountryCodeAttribute()
     {
         $code = explode(' ', $this->attributes['phone'])[0];
-        return preg_replace('~[)(]~', '',  $code);
+        $trimmedCode = preg_replace('~[)(]~', '',  $code);
+        return "+$trimmedCode";
     }
 
     public function getCountryAttribute()
