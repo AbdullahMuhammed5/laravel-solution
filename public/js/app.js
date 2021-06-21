@@ -32,25 +32,25 @@ $(document).ready(function() {
         })
     }
 
+    function initialiseTable(){
+        $('#example').DataTable( {
+            "ajax": `${url}/customers`,
+            columns: [
+                { data: "country"},
+                { data: "country_code"},
+                { data: "phone"},
+                { data: "phone_state"},
+            ],
+            pageLength: 5,
+            lengthMenu: [5, 10, 20, 50, 100],
+            order: []
+        } );
+    }
+
     renderCountryList()
+    initialiseTable()
 
     countryElem.on('change', handleFilterChange)
     stateElem.on('change', handleFilterChange)
-
-    // to be seperated in initialize function
-    $('#example').DataTable( {
-        "ajax": `${url}/customers`,
-        columns: [
-            // { data: "country" },
-            // { data: "phone_state" },
-            // { data: "country_code"},
-            { data: "country"},
-            { data: "country_code"},
-            { data: "phone"},
-            { data: "phone_state"},
-        ],
-        pageLength: 5,
-        lengthMenu: [5, 10, 20, 50, 100],
-    } );
 } );
 

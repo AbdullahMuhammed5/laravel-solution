@@ -35,6 +35,7 @@ class CustomerController extends Controller
             $data = count($filters) ?
                 $this->customerService->handleFilters($filters) :
                 Customer::all();
+            $data = $data->shuffle(); // shuffle collection to render different data every time
 
             return Datatables::of($data)
                 ->addColumn('phone_state', 'customers.phoneState')
